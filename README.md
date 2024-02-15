@@ -16,7 +16,7 @@ Movie Search App is an iOS application developed using SwiftUI and Combine frame
 
 1. **Movie Search:** Users can search by movie titles and list the results.
   
-2. **Movie Details:** Provides access to detailed information for a selected movie. This information includes movie poster, director, cast, awards, IMDb score, release date, duration, plot, language, etc.
+2. **Movie Details:** It provides access to detailed information for a selected movie. This information includes movie poster, director, cast, awards, IMDb score, release date, duration, plot, language, etc.
 
 3. **Responsive Interface:** The app is developed using SwiftUI to adapt to different screen sizes.
 
