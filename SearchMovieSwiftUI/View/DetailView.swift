@@ -101,8 +101,7 @@ struct DetailView: View {
     }
 }
 
-struct DetayView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(imdbId: "test")
-    }
+#Preview {
+    DetailView(imdbId: "test")
+
 }

@@ -67,8 +67,8 @@ struct MovieListView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MovieListView()
-    }
+
+#Preview {
+    MovieListView()
+
 }
