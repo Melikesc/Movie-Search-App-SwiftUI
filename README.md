@@ -23,6 +23,12 @@ Movie Search App is an iOS application developed using SwiftUI and Combine frame
 4. **Advanced Search:** Users can successfully perform search queries containing spaces and special characters.
 
 
+## Screenshots
+
+
+![screen](https://github.com/Melikesc/Movie-Search-App-SwiftUI/assets/92749084/0b26ea42-3677-487d-8e52-f05582227948)
+
+
 ## Installation
 
 You need Xcode and the Swift language to run this code. Use the following Git command to clone the project to your local machine:
