@@ -12,7 +12,7 @@ class DownloaderClient {
     
     func downloadMovies(search: String, completion: @escaping (Result<[Movie]?,DownloaderError>) -> Void) {
         
-        guard let url = URL(string: "https://www.omdbapi.com/?s=\(search)&apikey=c0408e5b") else {
+        guard let url = URL(string: "https://www.omdbapi.com/?s=\(search)&apikey=(yourapikey)") else {
             return completion(.failure(.wrongURL))
         }
         
@@ -33,7 +33,7 @@ class DownloaderClient {
     
     func downloadMovieDetails(imdbId : String, completion: @escaping (Result<MovieDetail,DownloaderError>) -> Void) {
         
-        guard let url = URL(string: "https://www.omdbapi.com/?i=\(imdbId)&apikey=c0408e5b") else {
+        guard let url = URL(string: "https://www.omdbapi.com/?i=\(imdbId)&apikey=(yourapikey)") else {
             return completion(.failure(.wrongURL))
         }
         

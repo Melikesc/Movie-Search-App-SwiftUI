@@ -36,7 +36,7 @@ struct DetailView: View {
                     HStack{
                         Spacer()
                         Text(movieDetailViewModel.movieDetails?.plot ?? "The plot of the movie will be shown.") .italic().foregroundColor(.textcolor)
-                        Spacer()#imageLiteral(resourceName: "simulator_screenshot_58AA3719-B882-4A1C-A76A-F4EFD712746B.png")
+                        Spacer()
                     }.frame(maxWidth: .infinity, alignment: .center)
                         .padding(10)
                     
