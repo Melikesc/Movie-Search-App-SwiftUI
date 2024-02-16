@@ -10,65 +10,65 @@ import SwiftUI
 struct MovieListView: View {
     
     @ObservedObject var movieListViewModel : MovieListViewModel
-    @State var MovieToSearch = ""
+    
+    @State var movieToSearch = ""
     
     init() {
         self.movieListViewModel = MovieListViewModel()
-        self.movieListViewModel.searchMovie(movieName: MovieToSearch)
+      
     }
     
     var body: some View {
         
-        NavigationView{
+        ZStack{
             
-            VStack{
+           
+            Color.background
+                .ignoresSafeArea(.all)
+            
+            
+            NavigationView{
                 
-                TextField("Movie to Search.. ", text: $MovieToSearch, onEditingChanged:{ _ in } , onCommit: {
-                    self.movieListViewModel
-                        .searchMovie(movieName: MovieToSearch
-                            .trimmingCharacters(in: .whitespacesAndNewlines)
-                            .addingPercentEncoding(withAllowedCharacters:
-                                    .urlHostAllowed) ?? MovieToSearch)  // boşluk ve yeni satırları url'de anlamlı bir hale getirmeliyiz.
-                }).padding(10)
+             
                 
-                    .background(.backgroundcolor) //searchbar'ın arka plan rengi
-                    .cornerRadius(5) //searchbar kenarlığı
-                
-                
-                
-                List(movieListViewModel.movies , id: \.imdbId) //aradığımız filmden çıkan sonuçları alt alta liste haline getirdik.
-                { movie in
-                    
-                    NavigationLink(
-                        destination: DetailView(imdbId: movie.imdbId),
-                                   label: {
-                                       HStack () { // film posteri adı ve yılını yan yana görüyoruz.
-                                           SpecImage(url: movie.poster)
-                                               .frame(width: 80, height: 100)
-                                           
-                                           
-                                           VStack(alignment: .leading) {
-                                               Text(movie.title)
-                                                   .font(.title3)
-                                                   .foregroundColor(.blue)
-                                               
-                                               
-                                               Text(movie.year)
-                                                   .foregroundColor(.orange)
-                                               
-                                           }
-                                       }
-                        })
-                    
+                VStack {
                    
-                }.navigationTitle(Text("Movie Book"))
-            }.padding(10)
-            
+                    
+                    TextField("Enter the movie you're looking for..", text: $movieToSearch, onEditingChanged:{ _ in }, onCommit: {
+                        self.movieListViewModel.searchMovie(movieName: movieToSearch.trimmingCharacters(in: .whitespacesAndNewlines).addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? movieToSearch)
+                    }).padding().textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    List(movieListViewModel.movies, id: \.imdbId) { movie in
+                        NavigationLink(
+                            destination: DetailView(imdbId:movie.imdbId),
+                            label: {
+                                HStack() {
+                                    
+                                    SpecImage(url: movie.poster)
+                                        .frame(width: 90, height:130)
+                                    
+                                    VStack(alignment: .leading) {
+                                        Text(movie.title)
+                                            .font(.title3)
+                                            .foregroundColor(.blue)
+                                        
+                                        
+                                        Text(movie.year)
+                                            .foregroundColor(.orange)
+                                    }
+                                }
+                            })
+                        
+                        
+                    }.navigationTitle(Text("CineMate"))
+                }
+            }
         }
     }
 }
-#Preview {
-    MovieListView()
-    
-}
 
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        MovieListView()
+    }
+}
